@@ -1,0 +1,2 @@
+{"code":"U1000","severity":"error","location":{"file":"/project/main.go","line":5,"column":6},"end":{"file":"","line":0,"column":0},"message":"func unused is unused"}
+{"code":"S1009","severity":"error","location":{"file":"/project/main.go","line":9,"column":5},"end":{"file":"/project/main.go","line":9,"column":28},"message":"should omit nil check; len() for nil slices is defined as zero"}

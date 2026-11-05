@@ -1,0 +1,20 @@
+[
+ {
+  "body": "This is a small change, instead of `TestMain` we call directly into a helper test function. Using `-test.run` keeps the ",
+  "path": "git/client_test.go",
+  "line": 1612,
+  "original_line": 1603,
+  "user": {
+   "login": "williammartin"
+  }
+ },
+ {
+  "body": "`assert.Equal` compares the buffers\u2019 contents, not their identity. Here, all three are empty `bytes.Buffer` values, so a",
+  "path": "git/client_test.go",
+  "line": 61,
+  "original_line": 61,
+  "user": {
+   "login": "williammartin"
+  }
+ }
+]

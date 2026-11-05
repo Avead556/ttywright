@@ -1,0 +1,85 @@
+{
+ "author": {
+  "id": "MDQ6VXNlcjQ3Mzk0MjAw",
+  "is_bot": false,
+  "login": "BagToad",
+  "name": "Kynan Ware"
+ },
+ "baseRefName": "trunk",
+ "body": "<!--\nThank you for contributing to GitHub CLI!\n\nIf you are proposing a fix for a security issue, STOP and follow .github/SECURITY.md instead.\n\nKeep the entire pull request self-contained, reviewer-fac",
+ "comments": [],
+ "headRefName": "bagtoad/show-refs-option-like-ref-test",
+ "headRefOid": "f59a50225f9aa8f4907c718963be3616fa48fdd5",
+ "isCrossRepository": false,
+ "isDraft": false,
+ "mergeable": "UNKNOWN",
+ "number": 14879,
+ "reviewDecision": "APPROVED",
+ "reviews": [
+  {
+   "id": "PRR_kwDODKw3uc8AAAABVK6zMg",
+   "author": {
+    "login": "copilot-pull-request-reviewer"
+   },
+   "authorAssociation": "CONTRIBUTOR",
+   "body": "<!-- ccr-overview-v2 -->\n\n### \ud83d\udfe2 Approval recommended\n\nNo active review issues block the added regression coverage for `ShowRefs` option separation.\n\n**No open issues** \ud83c\udf89\n\n<details>\n<summary><strong>Wh",
+   "submittedAt": "2026-10-30T16:54:42Z",
+   "includesCreatedEdit": false,
+   "reactionGroups": [],
+   "state": "COMMENTED",
+   "commit": {
+    "oid": "0412ebec4b126a18e448474f0bede774bd1aaf2d"
+   }
+  },
+  {
+   "id": "PRR_kwDODKw3uc8AAAABVMAScg",
+   "author": {
+    "login": "williammartin"
+   },
+   "authorAssociation": "MEMBER",
+   "body": "",
+   "submittedAt": "2026-10-30T18:23:44Z",
+   "includesCreatedEdit": false,
+   "reactionGroups": [],
+   "state": "APPROVED",
+   "commit": {
+    "oid": "f59a50225f9aa8f4907c718963be3616fa48fdd5"
+   }
+  }
+ ],
+ "state": "MERGED",
+ "statusCheckRollup": [
+  {
+   "__typename": "CheckRun",
+   "completedAt": "2026-10-30T17:34:11Z",
+   "conclusion": "SUCCESS",
+   "detailsUrl": "https://github.com/cli/cli/actions/runs/41099468002/job/124213741245",
+   "name": "CodeQL-Build (go, manual, ./.github/codeql/codeql-config.yml)",
+   "startedAt": "2026-10-30T17:31:00Z",
+   "status": "COMPLETED",
+   "workflowName": "Code Scanning"
+  },
+  {
+   "__typename": "CheckRun",
+   "completedAt": "2026-10-30T17:33:57Z",
+   "conclusion": "SUCCESS",
+   "detailsUrl": "https://github.com/cli/cli/actions/runs/41099468068/job/124213742376",
+   "name": "lint",
+   "startedAt": "2026-10-30T17:31:08Z",
+   "status": "COMPLETED",
+   "workflowName": "Lint"
+  },
+  {
+   "__typename": "CheckRun",
+   "completedAt": "2026-10-30T17:35:54Z",
+   "conclusion": "SUCCESS",
+   "detailsUrl": "https://github.com/cli/cli/actions/runs/41099467983/job/124213743055",
+   "name": "build (ubuntu-latest)",
+   "startedAt": "2026-10-30T17:31:00Z",
+   "status": "COMPLETED",
+   "workflowName": "Unit and Integration Tests"
+  }
+ ],
+ "title": "Test ShowRefs option separator",
+ "url": "https://github.com/cli/cli/pull/14879"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "demo",
+  "networks": {
+    "default": {
+      "name": "demo_default"
+    }
+  },
+  "services": {
+    "db": {
+      "build": {
+        "context": "/tmp/demo",
+        "dockerfile": "Dockerfile"
+      },
+      "networks": {
+        "default": null
+      }
+    },
+    "web": {
+      "environment": {
+        "SECRET": "${SECRET}"
+      },
+      "image": "nginx:${TAG:-1}",
+      "networks": {
+        "default": null
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "protocol": "tcp",
+          "published": "80",
+          "target": 80
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,106 @@
+[package]
+name = "ttywright"
+version = "0.1.0"
+edition = "2024"
+description = "A keyboard-first IDE that runs inside the terminal"
+
+[workspace]
+members = ["crates/plugin-host", "crates/grammar-loader", "crates/grammar-module"]
+
+# The folder build (ADR-0035), used by `scripts/build-release.sh`.
+[profile.release-dist]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
+strip = true
+
+[features]
+# Everything inside one program, as `cargo run`, `cargo test` and `cargo install`
+# want it. Without it the grammars and the plugin runtime are files in `lib/`.
+default = ["static-modules"]
+static-modules = ["ttywright-plugin-host/runtime"]
+
+# The package is ttywright; what people type is short.
+[[bin]]
+name = "ttyw"
+path = "src/main.rs"
+
+[[example]]
+name = "plugin_host"
+path = "tests/support/plugin_host.rs"
+required-features = ["static-modules"]
+
+[[example]]
+name = "fake_lsp"
+path = "tests/support/fake_lsp.rs"
+
+[[example]]
+name = "fake_dap"
+path = "tests/support/fake_dap.rs"
+
+[[example]]
+name = "screenshots"
+path = "scripts/screenshots.rs"
+
+[dependencies]
+ttywright-grammar-loader = { path = "crates/grammar-loader" }
+ttywright-plugin-host = { path = "crates/plugin-host", default-features = false }
+anyhow = "1.0"
+signal-hook = "0.3"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "gif", "webp", "bmp"] }
+ignore = "0.4"
+# Markdown preview: CommonMark is too intricate to parse by hand, and this one
+# is maintained, pure Rust and needs none of its optional features.
+pulldown-cmark = { version = "0.13", default-features = false }
+ratatui = "0.30"
+regex = "1"
+regex-syntax = "0.8"
+nucleo-matcher = "0.3"
+# Without `unicode_lines`: a form feed must not start a line, as for LSP and tree-sitter.
+ropey = { version = "1.6", default-features = false, features = ["simd", "cr_lines"] }
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "2.0"
+tree-sitter = "0.25"
+tree-sitter-bash = "0.25"
+tree-sitter-go = "0.25"
+tree-sitter-java = "0.23"
+tree-sitter-javascript = "0.25"
+tree-sitter-json = "0.24"
+tree-sitter-md = "0.5"
+tree-sitter-php = "0.25"
+tree-sitter-python = "0.25"
+tree-sitter-rust = "0.24"
+tree-sitter-toml-ng = "0.7"
+tree-sitter-typescript = "0.23"
+unicode-segmentation = "1.12"
+unicode-width = "0.2"
+notify = "8"
+directories = "6"
+serde_json = "1"
+blake3 = "1"
+similar = "3"
+zstd = "0.14"
+tokio = { version = "1", features = ["fs", "rt-multi-thread", "process", "io-util", "sync", "time", "macros"] }
+lsp-types = "0.97"
+toml = "1.1.8"
+rustix = { version = "1", features = ["fs", "process", "pty", "termios"] }
+# A delete goes to the system trash, whose rules differ on each platform.
+trash = { version = "5", default-features = false }
+portable-pty = "0.9"
+vt100 = "0.16"
+tungstenite = { version = "0.30", default-features = false, features = ["handshake"] }
+
+[build-dependencies]
+zstd = "0.14"
+
+[dev-dependencies]
+portable-pty = "0.9.0"
+tempfile = "3"
+wat = "1"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"

@@ -1,0 +1,28 @@
+[package]
+name = "ttywright-plugin-host"
+version = "0.1.0"
+edition = "2024"
+description = "Runs ttywright's WebAssembly plugins in a process of their own"
+
+[features]
+default = ["runtime"]
+runtime = ["dep:wasmtime"]
+
+[[bin]]
+name = "ttywright-plugins"
+path = "src/main.rs"
+required-features = ["runtime"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1"
+# Plugins (ADR-0023): the sandbox itself, with fuel and memory limits; only the
+# compiler and runtime, no WASI, so a plugin has no way out but our functions.
+wasmtime = { version = "44", default-features = false, features = ["cranelift", "runtime", "std"], optional = true }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"

@@ -1,0 +1,16 @@
+pub const SCRATCH_KINDS: [(&str, &str); 14] = [
+    ("Text", "txt"),
+    ("Markdown", "md"),
+    ("Rust", "rs"),
+    ("Python", "py"),
+    ("JavaScript", "js"),
+    ("TypeScript", "ts"),
+    ("Go", "go"),
+    ("PHP", "php"),
+    ("Java", "java"),
+    ("Bash", "sh"),
+    ("JSON", "json"),
+    ("TOML", "toml"),
+    ("SQL", "sql"),
+    ("HTTP request", "http"),
+];

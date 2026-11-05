@@ -1,0 +1,7 @@
+# Copy this folder to <config dir>/plugins/hello, with plugin.wasm built from
+# plugin.wat (`wat2wasm plugin.wat -o plugin.wasm`), then run `Reload Plugins`.
+name = "hello"
+
+[[commands]]
+id = "say"
+title = "Say Hello"
